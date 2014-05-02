@@ -19,7 +19,7 @@ public interface Game {
     public Screen getInitScreen();
 
 	public void Vibrate(int i);
-
+	// git test
 	public void SaveTop5(ArrayList<Integer> gearScores, ArrayList<String> times);
     public void SetHighScoresZero();
 	public ArrayList GetHighScores();
