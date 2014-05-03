@@ -3,6 +3,7 @@ package com.mitch.framework.implementation;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import android.R;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -39,11 +40,11 @@ public abstract class AndroidGame extends Activity implements Game {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        
         //boolean isPortrait = getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT;
         //int frameBufferWidth = isPortrait ? 480: 800;
         //int frameBufferHeight = isPortrait ? 800: 480;
