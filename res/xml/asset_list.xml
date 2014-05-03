@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- <image key="" path="" /> -->
+<!-- <sound key="" path="" /> -->
+<!-- <music key="" path="" /> -->
 <assets>
-    <!-- <image key="" path="" /> -->
-    <!-- <sound key="" path="" /> -->
-    <!-- <music key="" path="" /> -->
-    <music key="blue" path="Music\blue.mp3" />
-    
+    <music key="blue" path="Music/blue.mp3" />
+    <image key="locale" path="Locale/2.png" />
+	<image key="locale" path="Locale/0.png" locale="ru" />
+	<image key="locale" path="Locale/1.png" locale="fr" />
+	
 </assets>

@@ -3,7 +3,6 @@ package com.mitch.flyship.screens;
 import com.mitch.flyship.Assets;
 import com.mitch.framework.Game;
 import com.mitch.framework.Graphics;
-import com.mitch.framework.Graphics.ImageFormat;
 import com.mitch.framework.Image;
 import com.mitch.framework.Screen;
 
@@ -19,7 +18,8 @@ public class Loading extends Screen {
 		super(game);
 		this.game = game;
 		Graphics g = game.getGraphics();
-		splash = g.newImage("WIG/WIG_splash.png", ImageFormat.ARGB4444);
+		Assets.loadImage("WIG_Splash", "WIG/WIG_splash.png", null, g);
+		splash = Assets.getImage("WIG_Splash");
 	}
 
 	@Override
@@ -30,7 +30,8 @@ public class Loading extends Screen {
 		percentage = percentage > 1 ? 1 : percentage;
 		opacity = 255 * percentage;
 		
-		if (Assets.isLoaded() && opacity <= 0) {
+		if (Assets.isLoaded() && elapsedTime > splashDisplayTime) {
+			game.setScreen(new Menu(game));
 			//Log.d("Assets loaded", "" + opacity);
 		}
 	}
