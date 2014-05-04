@@ -1,53 +1,52 @@
 package com.mitch.flyship.screens;
 
 import com.mitch.flyship.Assets;
+import com.mitch.flyship.objects.Button;
 import com.mitch.framework.Game;
-import com.mitch.framework.Graphics;
 import com.mitch.framework.Screen;
+import com.mitch.framework.containers.Vector2d;
 
 public class Menu extends Screen {
+	
+	Button button;
 	
 	public Menu(Game game)
 	{
 		super(game);
-		
+		//Graphics g = game.getGraphics();
+		button = new Button(game, new Vector2d(200, 200), "LEVEL 1");
 	}
 	
 	@Override
-	public void update(float deltaTime) {
-		// TODO Auto-generated method stub
-
+	public void update(float deltaTime) 
+	{
+		button.onUpdate(deltaTime);
 	}
 
 	@Override
-	public void paint(float deltaTime) {
-		Graphics g = game.getGraphics();
-		g.drawARGB( 255, 0, 0, 0);
-		g.drawImage(Assets.getImage("locale"), 100, 250);
+	public void paint(float deltaTime) 
+	{
+		button.onPaint(deltaTime);
 	}
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
-
+		Assets.getMusic("blue").pause();
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
-
+		Assets.getMusic("blue").play();
 	}
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void backButton() {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 }

@@ -17,6 +17,7 @@ public class Loading extends Screen {
 	public Loading(Game game) {
 		super(game);
 		this.game = game;
+		
 		Graphics g = game.getGraphics();
 		Assets.loadImage("WIG_Splash", "WIG/WIG_splash.png", null, g);
 		splash = Assets.getImage("WIG_Splash");
@@ -32,7 +33,6 @@ public class Loading extends Screen {
 		
 		if (Assets.isLoaded() && elapsedTime > splashDisplayTime) {
 			game.setScreen(new Menu(game));
-			//Log.d("Assets loaded", "" + opacity);
 		}
 	}
 

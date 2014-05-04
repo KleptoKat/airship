@@ -16,6 +16,7 @@ import android.graphics.RectF;
 
 import com.mitch.framework.Graphics;
 import com.mitch.framework.Image;
+import com.mitch.framework.containers.Vector2d;
 
 public class AndroidGraphics implements Graphics {
     AssetManager assets;
@@ -105,8 +106,12 @@ public class AndroidGraphics implements Graphics {
     }
     
     @Override
-    public void drawString(String text, int x, int y, Paint paint){
+    public Vector2d drawString(String text, int x, int y, Paint paint) {
     	canvas.drawText(text, x, y, paint);	
+    	
+    	Rect textBounds = new Rect(0,0,0,0);
+    	paint.getTextBounds(text, 0, text.length(), textBounds);
+    	return new Vector2d(textBounds.right, textBounds.top);
     }
     
 
@@ -128,14 +133,19 @@ public class AndroidGraphics implements Graphics {
     }
     
     @Override
-    public void drawImage(Image Image, float x, float y) {
-    	float width    = Image.getWidth()  * scale;
-    	float height   = Image.getHeight() * scale;
-    	dstRect.left   = x;
-        dstRect.top    = y;
-        dstRect.right  = (x + width);
-        dstRect.bottom = (y + height);
-        canvas.drawBitmap(((AndroidImage)Image).bitmap, null, dstRect, null);
+    public void drawImage(Image image, Vector2d pos) {
+    	drawImage(image, pos.x, pos.y);
+    }
+    
+    @Override
+    public void drawImage(Image image, double x, double y) {
+    	float width    = image.getWidth()  * scale;
+    	float height   = image.getHeight() * scale;
+    	dstRect.left   = (float) x;
+        dstRect.top    = (float) y;
+        dstRect.right  = (float) (x + width);
+        dstRect.bottom = (float) (y + height);
+        canvas.drawBitmap(((AndroidImage)image).bitmap, null, dstRect, null);
     }
     public void drawImage2(Image Image, float x, float y) {
     	float width    = Image.getWidth()  * scale;

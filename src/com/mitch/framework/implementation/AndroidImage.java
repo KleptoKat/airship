@@ -2,8 +2,9 @@ package com.mitch.framework.implementation;
 
 import android.graphics.Bitmap;
 
-import com.mitch.framework.Image;
 import com.mitch.framework.Graphics.ImageFormat;
+import com.mitch.framework.Image;
+import com.mitch.framework.containers.Vector2d;
 
 public class AndroidImage implements Image {
     Bitmap bitmap;
@@ -13,7 +14,12 @@ public class AndroidImage implements Image {
         this.bitmap = bitmap;
         this.format = format;
     }
-
+    
+    @Override
+    public Vector2d getSize() {
+    	return new Vector2d(getWidth(), getHeight());
+    }
+    
     @Override
     public int getWidth() {
         return bitmap.getWidth();

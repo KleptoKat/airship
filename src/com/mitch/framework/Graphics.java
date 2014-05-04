@@ -4,6 +4,8 @@ package com.mitch.framework;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
+import com.mitch.framework.containers.Vector2d;
+
 public interface Graphics {
 	public static enum ImageFormat {
 		ARGB8888, ARGB4444, RGB565
@@ -20,9 +22,11 @@ public interface Graphics {
 	public void drawImage(Image image, int x, int y, int srcX, int srcY,
 			int srcWidth, int srcHeight);
 
-	public void drawImage(Image Image, float f, float g);
+	public void drawImage(Image Image, double x, double y);
+	
+	public void drawImage(Image Image, Vector2d pos);
 
-	void drawString(String text, int x, int y, Paint paint);
+	Vector2d drawString(String text, int x, int y, Paint paint);
 	
 	public void drawImage2(Image Image, float x, float y);
 	public int getWidth();

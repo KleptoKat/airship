@@ -8,8 +8,8 @@ public class AirshipGame extends AndroidGame {
 	
 	
 	@Override
-	public Screen getInitScreen() {
-		
+	public Screen getInitScreen() 
+	{
 		if (!Assets.isLoaded()) {
 			new LoadAssetsTask().execute(this);
 		}
@@ -18,7 +18,8 @@ public class AirshipGame extends AndroidGame {
 	}
 	
 	@Override
-	public void onBackPressed() {
+	public void onBackPressed() 
+	{
 		getCurrentScreen().backButton();
 	}
 
